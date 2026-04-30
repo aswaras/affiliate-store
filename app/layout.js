@@ -28,11 +28,18 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/icon.png" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark');
+            }
+          `
+        }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }`
+        }} />
       </head>
       <body className={inter.className}>{children}</body>
-      <script dangerouslySetInnerHTML={{
-        __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }`
-      }} />
     </html>
   )
 }
