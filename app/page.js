@@ -49,17 +49,17 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero */}
-      <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white py-12 px-4 text-center">
-        <h1 className="text-3xl font-bold mb-2">🛍️ Produk Pilihan Terbaik</h1>
-        <p className="text-orange-100">Harga terjangkau, kualitas terjamin</p>
+      <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white py-8 md:py-12 px-4 text-center">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">🛍️ Produk Pilihan Terbaik</h1>
+        <p className="text-sm md:text-base text-orange-100">Harga terjangkau, kualitas terjamin</p>
 
         {/* Search Bar */}
-        <div className="max-w-md mx-auto mt-6 relative">
+        <div className="max-w-md mx-auto mt-4 md:mt-6 relative">
           <Search className="absolute left-3 top-3 text-gray-400" size={20} />
           <input
             type="text"
             placeholder="Cari produk..."
-            className="w-full pl-10 pr-4 py-3 rounded-full text-gray-800 outline-none"
+            className="w-full pl-10 pr-4 py-2 md:py-3 rounded-full text-gray-800 outline-none text-sm md:text-base"
             value={search}
             onChange={e => setSearch(e.target.value)}
           />

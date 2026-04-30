@@ -21,7 +21,7 @@ export default function ProductCard({ product }) {
           <img
             src={product.image_url || '/placeholder.jpg'}
             alt={product.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-40 md:h-48 object-cover"
           />
           {discount && (
             <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
