@@ -94,7 +94,7 @@ export default function DetailProduk({ params }) {
             <Share2 size={18} /> Share
           </button>
 
-          
+          <a
             href={`https://wa.me/628xxxxxxxxxx?text=Halo, saya tertarik dengan produk: ${product.title}`}
             target="_blank"
             className="flex items-center gap-2 px-4 py-3 bg-green-500 text-white rounded-xl"
