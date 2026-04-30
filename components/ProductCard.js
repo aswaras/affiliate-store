@@ -15,36 +15,36 @@ export default function ProductCard({ product }) {
 
   return (
     <Link href={`/produk/${product.id}`}>
-      <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition cursor-pointer overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden border border-gray-100">
         {/* Gambar */}
-        <div className="relative">
+        <div className="relative overflow-hidden bg-gray-200 h-40 md:h-48">
           <img
             src={product.image_url || '/placeholder.jpg'}
             alt={product.title}
-            className="w-full h-40 md:h-48 object-cover"
+            className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
           />
           {discount && (
-            <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+            <span className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
               -{discount}%
             </span>
           )}
           {product.is_featured && (
-            <span className="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">
+            <span className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
               ⭐ Unggulan
             </span>
           )}
         </div>
 
         {/* Info */}
-        <div className="p-3">
-          <p className="text-sm font-medium text-gray-800 line-clamp-2 mb-1">
+        <div className="p-4">
+          <p className="text-sm font-semibold text-gray-800 line-clamp-2 mb-2 h-10 flex items-start">
             {product.title}
           </p>
-          <p className="text-orange-500 font-bold">
+          <p className="text-lg font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
             Rp {product.price.toLocaleString('id-ID')}
           </p>
           {product.original_price && (
-            <p className="text-gray-400 text-xs line-through">
+            <p className="text-gray-400 text-xs line-through mt-1">
               Rp {product.original_price.toLocaleString('id-ID')}
             </p>
           )}

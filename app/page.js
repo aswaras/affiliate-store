@@ -49,17 +49,17 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero */}
-      <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white py-8 md:py-12 px-4 text-center">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">🛍️ Produk Pilihan Terbaik</h1>
-        <p className="text-sm md:text-base text-orange-100">Harga terjangkau, kualitas terjamin</p>
+      <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-pink-600 text-white py-10 md:py-16 px-4 text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 drop-shadow-lg">🛍️ Produk Pilihan Terbaik</h1>
+        <p className="text-base md:text-lg text-orange-100 drop-shadow-md">Harga terjangkau, kualitas terjamin</p>
 
         {/* Search Bar */}
-        <div className="max-w-md mx-auto mt-4 md:mt-6 relative">
-          <Search className="absolute left-3 top-3 text-gray-400" size={20} />
+        <div className="max-w-md mx-auto mt-6 md:mt-8 relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="text"
             placeholder="Cari produk..."
-            className="w-full pl-10 pr-4 py-2 md:py-3 rounded-full text-gray-800 outline-none text-sm md:text-base"
+            className="w-full pl-12 pr-4 py-3 md:py-4 rounded-full text-gray-800 outline-none text-sm md:text-base font-medium shadow-lg focus:ring-4 focus:ring-orange-300 transition"
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
@@ -74,13 +74,18 @@ export default function HomePage() {
       />
 
       {/* Grid Produk */}
-      <div className="max-w-6xl mx-auto px-4 py-6">
+      <div className="max-w-6xl mx-auto px-3 md:px-4 py-8 md:py-12">
         {loading ? (
-          <div className="text-center py-20 text-gray-400">Memuat produk...</div>
+          <div className="text-center py-20">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            <p className="text-gray-400 mt-4">Memuat produk...</p>
+          </div>
         ) : products.length === 0 ? (
-          <div className="text-center py-20 text-gray-400">Produk tidak ditemukan</div>
+          <div className="text-center py-20 text-gray-400">
+            <p className="text-lg">😕 Produk tidak ditemukan</p>
+          </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
